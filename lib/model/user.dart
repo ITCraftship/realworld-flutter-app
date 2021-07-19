@@ -1,4 +1,5 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
+import 'package:realworld_flutter/model/processors/sanitize_url_processor.dart';
 
 part 'user.jser.dart';
 
@@ -32,5 +33,9 @@ class User {
   }
 }
 
-@GenSerializer(nullableFields: true)
+@GenSerializer(nullableFields: true, fields: {
+  'image': Field(
+    processor: SanitizeUrlProcessor(),
+  ),
+})
 class UserSerializer extends Serializer<User> with _$UserSerializer {}

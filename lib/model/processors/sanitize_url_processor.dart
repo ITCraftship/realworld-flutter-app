@@ -10,6 +10,8 @@ class SanitizeUrlProcessor implements FieldProcessor<String, String> {
 
   @override
   String deserialize(String value) {
+    if (value == null) return 'https://static.productionready.io/images/smiley-cyrus.jpg';
+
     if (value.isEmpty) return value;
 
     try {
