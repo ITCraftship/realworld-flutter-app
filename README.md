@@ -10,14 +10,19 @@ This is a [RealWorld](https://github.com/gothinkster/realworld) Flutter app.
 
 # Quick Installation
 
-```dart
-git clone git@github.com:rhalff/realworld_flutter.git
-flutter pub get
-flutter pub run build_runner build
-flutter run 
+Start by installing the [Flutter Version Manager](https://github.com/leoafarias/fvm) and [Ruby Version Manager](https://rvm.io/)
+
+```bash
+git clone git@github.com:ITCraftship/realworld-flutter-app.git
+cd realworld-flutter-app
+fvm install 1.22.6
+fvm use 1.22.6
+fvm flutter pub get
+fvm flutter pub run build_runner build
+fvm flutter run 
 ```
 
-### Screenshots 
+## Screenshots 
 
 ---
 
@@ -34,3 +39,6 @@ Libraries used:
 * [Jaguar Retrofit](https://github.com/Jaguar-dart/client/tree/master/retrofit)
 * [Cached Network Image](https://github.com/renefloor/flutter_cached_network_image)
 
+## Known issues
+
+* Updgrade of the Android project needed ([migration guide](https://github.com/flutter/flutter/wiki/Upgrading-pre-1.12-Android-projects))

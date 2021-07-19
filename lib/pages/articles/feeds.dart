@@ -40,10 +40,7 @@ class _FeedsState extends State<Feeds> with SingleTickerProviderStateMixin {
   void initState() {
     _scrollController = ScrollController();
 
-    final initialIndex = widget.initialFeed != null
-        ? widget.feeds
-            .indexWhere((FeedModel feed) => feed.id == widget.initialFeed)
-        : 0;
+    final initialIndex = widget.initialFeed != null ? widget.feeds.indexWhere((FeedModel feed) => feed.id == widget.initialFeed) : 0;
 
     _tabController = TabController(
       length: widget.feeds.length,
@@ -85,9 +82,7 @@ class _FeedsState extends State<Feeds> with SingleTickerProviderStateMixin {
               child: Container(
                 child: TabBar(
                   controller: _tabController,
-                  tabs: widget.feeds
-                      .map((feed) => Tab(text: feed.label))
-                      .toList(),
+                  tabs: widget.feeds.map((feed) => Tab(text: feed.label)).toList(),
                 ),
               ),
             ),
@@ -114,9 +109,7 @@ class _FeedsState extends State<Feeds> with SingleTickerProviderStateMixin {
                         return BlocProvider<ArticlesBloc>.value(
                           value: getArticlesBloc(feed),
                           child: Opacity(
-                            opacity: index % 2 == 0
-                                ? 1 - _tabController.animation.value
-                                : _tabController.animation.value,
+                            opacity: index % 2 == 0 ? 1 - _tabController.animation.value : _tabController.animation.value,
                             child: Feed(
                               id: feed.id,
                               scrollThreshold: feed.scrollThreshold,
@@ -167,8 +160,7 @@ class FeedTabs implements SliverPersistentHeaderDelegate {
   });
 
   @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12.0),
       child: Container(
@@ -190,4 +182,10 @@ class FeedTabs implements SliverPersistentHeaderDelegate {
 
   @override
   OverScrollHeaderStretchConfiguration get stretchConfiguration => null;
+
+  @override
+  PersistentHeaderShowOnScreenConfiguration get showOnScreenConfiguration => null;
+
+  @override
+  TickerProvider get vsync => null;
 }

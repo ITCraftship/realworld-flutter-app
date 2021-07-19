@@ -24,8 +24,7 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
-    with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final locale = RWLocalizations.of(context);
@@ -116,8 +115,7 @@ class HeroHeader implements SliverPersistentHeaderDelegate {
   });
 
   @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     final h = maxExtent - shrinkOffset;
     return Hero(
       tag: 'header',
@@ -138,4 +136,10 @@ class HeroHeader implements SliverPersistentHeaderDelegate {
 
   @override
   OverScrollHeaderStretchConfiguration get stretchConfiguration => null;
+
+  @override
+  PersistentHeaderShowOnScreenConfiguration get showOnScreenConfiguration => null;
+
+  @override
+  TickerProvider get vsync => null;
 }
